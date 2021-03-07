@@ -1,0 +1,17 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form method="POST", action="/">
+            Input characters : <input type="text", name="dwarf_first_chars", placeholder="Enter the first few characters for the Dwarf name">
+            <input type="submit", value="Generate a new name">
+
+            {% if data %}
+                <b>{{data}}</b>
+            
+            
+            {% endif %}
+        </form>
+    </body>
+</html>
