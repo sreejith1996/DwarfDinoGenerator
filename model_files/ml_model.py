@@ -8,7 +8,17 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from keras.callbacks import LambdaCallback
 
+dwarves = open("Dwarf Names Training Data.txt","r")
+dwarf_names = []
+for dwarf in dwarves:
+    dwarf_stripped = dwarf.rstrip()
+    dwarf_stripped = dwarf_stripped.lower()
+    dwarf_names.append(dwarf_stripped)
 
+dwarf_names = list(map(lambda s: s + '.', dwarf_names))
+
+max_length = len(max(dwarf_names, key=len))
+char_dim = len(char_to_id)
 
 ##functions
 def make_name(model,user_string):
