@@ -8,8 +8,7 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from keras.callbacks import LambdaCallback
 
-
-dwarves = open("model_files/Dwarf Names Training Data.txt","r")
+dwarves = open("Dwarf Names Training Data.txt","r")
 dwarf_names = []
 for dwarf in dwarves:
     dwarf_stripped = dwarf.rstrip()
@@ -18,22 +17,7 @@ for dwarf in dwarves:
 
 dwarf_names = list(map(lambda s: s + '.', dwarf_names))
 
-dwarves.close()
-
-chars = string.ascii_lowercase
-chars_num = len(chars)
-
 max_length = len(max(dwarf_names, key=len))
-dwarf_length = len(dwarf_names)
-
-max_length = len(max(dwarf_names, key=len))
-dwarf_length = len(dwarf_names)
-char_to_id = {c:i for i, c in enumerate(chars)}
-char_to_id['.'] = 26
-
-id_to_char = {v:k for v,k in enumerate(chars)}
-id_to_char[26] = '.'
-
 char_dim = len(char_to_id)
 
 ##functions
@@ -60,4 +44,4 @@ def make_name(model,user_string):
         if character == '.':
             end = True
     
-    return ''.join(name)
+    print(''.join(name))
