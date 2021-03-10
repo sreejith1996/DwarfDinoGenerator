@@ -2,9 +2,10 @@ from flask import Flask, render_template, request
 import tensorflow as tf
 from keras.models import load_model
 from model_files.ml_model import make_name
-
+from flask_bootstrap import Bootstrap
 
 app = Flask("dwarf_dino_generator")
+Bootstrap(app)
 
 @app.route('/')
 def my_app():

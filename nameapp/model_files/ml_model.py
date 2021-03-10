@@ -8,6 +8,7 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from keras.callbacks import LambdaCallback
 
+
 dwarves = open("model_files/Dwarf Names Training Data.txt","r")
 dwarf_names = []
 for dwarf in dwarves:
